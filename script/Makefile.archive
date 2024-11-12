@@ -1,0 +1,16 @@
+include .config
+include script/Makefile.toolchain.$(TOOLCHAIN)
+include script/Makefile.libc
+include $(PROJECT_BASE)/objects.mk
+
+ifeq ($(TOOLCHAIN),armclang)
+    ARFLAGS	:=-cr
+else
+    ARFLAGS	:=cr
+endif
+
+all: $(TARGET)
+
+%.a: $(obj)
+	@echo "[AR]        $@"
+	$(Q)$(AR) $(ARFLAGS) $@ $(obj)
