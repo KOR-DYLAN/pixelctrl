@@ -13,11 +13,8 @@ endif
 BUILD_TYPE		:=debug
 
 # Target Directory Lists
-DIR_LISTS		+=driver
 DIR_LISTS		+=library
-DIR_LISTS		+=platform
-DIR_LISTS		+=boot
-DIR_LISTS		+=app
+DIR_LISTS		+=demo
 
 ifeq ($(OS),Windows_NT)
     NATIVE_SOURCE_DIR:=$(shell cygpath -m $(SOURCE_DIR))
